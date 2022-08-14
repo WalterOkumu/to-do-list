@@ -52,4 +52,11 @@ module.exports = {
       template: 'src/index.html',
     }),
   ],
+  optimization: {
+    runtimeChunk: 'single',
+  },
+  cache: {
+    type: 'filesystem',
+    maxAge: 5184000000,
+  },
 };
