@@ -89,6 +89,7 @@ li {
       width: 100%;
       justify-content: space-between;
       padding: 2px;
+      border-bottom: 1px solid lightgray;
 
       .task {
         text-align: left;
@@ -122,7 +123,12 @@ li {
 
     .bottom-text {
       text-align: center;
-      color: gray;
+      color: black;
+      font-weight: bold;
     }
+  }
+
+  .label {
+    display: none;
   }
 }
