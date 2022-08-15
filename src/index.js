@@ -1,6 +1,6 @@
-import otherFunction from './otherFunction.js';
-import './styles/main.scss';
+import './styles/styles.scss';
+import renderToDoContainer from './components/renderToDoContainer.js';
 
-otherFunction();
-
-console.log('Webpack Starter--yeah');
+window.onload = () => {
+  renderToDoContainer();
+};

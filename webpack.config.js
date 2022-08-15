@@ -1,14 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     main: path.resolve(__dirname, 'src/index.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: '[name].[contenthash].js',
     clean: true,
     assetModuleFilename: '[name][ext]',
   },
@@ -17,11 +18,13 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, 'dist'),
     },
-    port: 3000,
     open: true,
     hot: true,
     compress: true,
     historyApiFallback: true,
+    headers: {
+      'Cache-Control': 'max-age=31536000',
+    },
   },
   module: {
     rules: [
@@ -30,13 +33,12 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.js$/,
+        test: /\.m?js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
+        loader: 'babel-loader',
+        options: {
+          cacheCompression: false,
+          cacheDirectory: true,
         },
       },
       {
@@ -49,7 +51,19 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Webpack App',
       filename: 'index.html',
-      template: 'src/template.html',
+      template: 'src/index.html',
     }),
   ],
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        test: /\.js(\?.*)?$/i,
+        cache: false,
+      }),
+    ],
+  },
+  cache: {
+    type: 'filesystem',
+    maxAge: 0,
+  },
 };
