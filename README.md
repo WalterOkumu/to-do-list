@@ -13,6 +13,15 @@
 
 [Live Demo Link](https://walters-to-do-list-app.netlify.app/)
 
+## Getting Started
+
+### To get a local copy up and running follow these simple steps
+
+    > git clone git@github.com:WalterOkumu/to-do-list.git
+    > cd to-do-list
+    > npm install or yarn install
+    > npm start or yarn start
+
 ## Authors
 
 👤 **Walter Okumu**
