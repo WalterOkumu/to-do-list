@@ -9,7 +9,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: `[name].${Date.now().valueOf()}.[contenthash].js`,
+    filename: '[name].[contenthash].js',
     clean: true,
     assetModuleFilename: '[name][ext]',
   },
@@ -18,10 +18,14 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, 'dist'),
     },
+    port: 3000,
     open: true,
     hot: true,
     compress: true,
     historyApiFallback: true,
+    headers: {
+      'Cache-Control': 'max-age=31536000',
+    },
   },
   module: {
     rules: [
