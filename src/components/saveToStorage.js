@@ -6,9 +6,11 @@ const saveToStorage = (newTask) => {
 
     let taskList = [];
 
-    const check = localStorage.getItem('taskList');
+    taskList = JSON.parse(localStorage.getItem('taskList'));
 
-    if (check === null || check === '') {
+    if (taskList === null || !Array.isArray(taskList)) {
+      taskList = [];
+
       taskList.push({
         index: 1,
         description: newTask,
