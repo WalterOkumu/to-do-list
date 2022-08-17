@@ -1,3 +1,5 @@
+import clearCompletedTasks from './clearCompletedTasks';
+
 const renderBottomArea = () => {
   const bottomDiv = document.createElement('div');
   bottomDiv.className = 'bottom-area';
@@ -12,6 +14,7 @@ const renderBottomArea = () => {
   const bottomText = document.createElement('p');
   bottomText.className = 'bottom-text';
   bottomText.innerText = 'Clear all completed';
+  bottomText.addEventListener('click', () => clearCompletedTasks());
 
   bottomDiv.appendChild(bottomText);
 
