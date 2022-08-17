@@ -1,6 +1,13 @@
 const renderBottomArea = () => {
   const bottomDiv = document.createElement('div');
   bottomDiv.className = 'bottom-area';
+  bottomDiv.id = 'bottom-area';
+
+  if (window.localStorage.getItem('taskList')) {
+    bottomDiv.style.visibility = 'visible';
+  } else {
+    bottomDiv.style.visibility = 'hidden';
+  }
 
   const bottomText = document.createElement('p');
   bottomText.className = 'bottom-text';
