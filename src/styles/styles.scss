@@ -53,22 +53,29 @@ li {
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+    margin-bottom: 20px;
 
-    .task-input {
-      font-style: italic;
-      font-size: 15px;
-      padding: 8px;
-      border: none;
-      width: 100%;
-      background-color: transparent;
-      resize: none;
-      outline: none;
+    .task-form {
+      .task-input {
+        font-style: italic;
+        font-size: 15px;
+        text-align: left;
+        flex: 1;
+        padding-right: 5px;
+        border: none;
+        background-color: transparent;
+        resize: none;
+        outline: none;
+      }
     }
 
     .return-icon {
-      width: 15px;
-      height: 15px;
       cursor: pointer;
+
+      svg {
+        width: 15px;
+        height: 15px;
+      }
     }
   }
 
@@ -92,11 +99,17 @@ li {
         text-align: left;
         flex: 1;
         padding-right: 5px;
+        border: none;
+        background-color: transparent;
+        resize: none;
+        outline: none;
       }
 
       .task-icon {
         width: 25px;
         height: 25px;
+        display: flex;
+        align-items: center;
 
         &:hover {
           cursor: move;
@@ -108,7 +121,7 @@ li {
   .bottom-area {
     cursor: pointer;
     background-color: lightgray;
-    height: 40px;
+    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,6 +130,7 @@ li {
     left: 0;
     right: 0;
     width: 100%;
+    visibility: hidden;
 
     .bottom-text {
       text-align: center;

@@ -1,6 +1,6 @@
-import taskData from '../data.json';
-import renderData from './renderData.js';
 import renderBottomArea from './renderBottomArea.js';
+import addToList from './addToList';
+import renderData from './renderData.js';
 
 const renderToDoContainer = () => {
   const toDoListContainer = document.getElementsByClassName('to-do-list-container')[0];
@@ -24,20 +24,27 @@ const renderToDoContainer = () => {
   taskInputLabel.htmlFor = 'task-input';
   taskInputLabel.className = 'label';
 
+  const taskForm = document.createElement('form');
+  taskForm.className = 'task-form';
+
   const taskInputBox = document.createElement('input');
   taskInputBox.className = 'task-input';
   taskInputBox.id = 'task-input';
   taskInputBox.type = 'text';
   taskInputBox.placeholder = 'Add to your list...';
+  taskInputBox.name = 'task';
 
   const returnImage = document.createElement('div');
   returnImage.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/></svg>';
-  returnImage.className = 'return-icon';
+  returnImage.className = 'return-div';
+  returnImage.addEventListener('click', (event) => addToList(event));
 
   listHeader.appendChild(listTitle);
   listHeader.appendChild(syncImage);
 
-  taskInputLabel.appendChild(taskInputBox);
+  taskForm.appendChild(taskInputBox);
+
+  taskInputLabel.appendChild(taskForm);
 
   taskContainer.appendChild(taskInputLabel);
   taskContainer.appendChild(returnImage);
@@ -47,7 +54,8 @@ const renderToDoContainer = () => {
   toDoListContainer.appendChild(taskContainer);
   toDoListContainer.appendChild(document.createElement('hr'));
 
-  toDoListContainer.appendChild(renderData(taskData));
+  renderData();
+
   toDoListContainer.appendChild(renderBottomArea());
 };
 
