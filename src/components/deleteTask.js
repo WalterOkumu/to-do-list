@@ -14,7 +14,7 @@ const deleteTask = () => {
       taskList.splice(itemIndex, 1);
 
       for (let i = 0; i < taskList.length; i += 1) {
-        taskList[i].index = i;
+        taskList[i].index = i + 1;
       }
 
       localStorage.removeItem('taskList');

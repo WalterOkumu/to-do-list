@@ -55,14 +55,18 @@ li {
     padding: 5px;
     margin-bottom: 20px;
 
-    .task-input {
-      font-style: italic;
-      font-size: 15px;
-      padding: 8px;
-      border: none;
-      background-color: transparent;
-      resize: none;
-      outline: none;
+    .task-form {
+      .task-input {
+        font-style: italic;
+        font-size: 15px;
+        text-align: left;
+        flex: 1;
+        padding-right: 5px;
+        border: none;
+        background-color: transparent;
+        resize: none;
+        outline: none;
+      }
     }
 
     .return-icon {

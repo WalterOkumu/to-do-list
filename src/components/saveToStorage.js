@@ -10,7 +10,7 @@ const saveToStorage = (newTask) => {
 
     if (check === null || check === '') {
       taskList.push({
-        index: 0,
+        index: 1,
         description: newTask,
         completed: false,
       });
@@ -19,7 +19,7 @@ const saveToStorage = (newTask) => {
       taskList = JSON.parse(localStorage.getItem('taskList'));
 
       taskList.push({
-        index: taskList.length,
+        index: taskList[taskList.length - 1].index + 1,
         description: newTask,
         completed: false,
       });
