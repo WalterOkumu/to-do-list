@@ -1,7 +1,7 @@
 import storageAvailable from './storageAvailable.js';
 
 const clearCompletedTasks = () => {
-  const { localStorage } = window;
+  const { localStorage, location } = window;
 
   if (storageAvailable('localStorage')) {
     let taskList = [];
@@ -18,7 +18,7 @@ const clearCompletedTasks = () => {
       localStorage.removeItem('taskList');
       localStorage.setItem('taskList', JSON.stringify(updatedList));
 
-      window.location.reload();
+      location.reload();
     }
   }
 };
