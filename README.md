@@ -9,9 +9,9 @@
 - Major languages - HTML, SCSS & JS
 - Technologies used - VSCode
 
-## Live Demo (if available)
+## Live Demo
 
-[Live Demo Link](https://walters-to-do-list-app.netlify.app/)
+[Live Demo Link](https://walterokumu.github.io/to-do-list/dist/)
 
 ## Getting Started
 
