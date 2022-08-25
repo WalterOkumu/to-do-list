@@ -62,6 +62,8 @@ li {
     -moz-box-shadow: $removeBoxShadow;
 
     .task-form {
+      width: 90%;
+
       .task-input {
         font-style: italic;
         font-size: 15px;
@@ -78,6 +80,7 @@ li {
 
     .return-icon {
       cursor: pointer;
+      width: 10%;
 
       svg {
         width: 15px;

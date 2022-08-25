@@ -8,7 +8,7 @@ const saveToStorage = (newTask) => {
 
     taskList = JSON.parse(localStorage.getItem('taskList'));
 
-    if (taskList === null || !Array.isArray(taskList)) {
+    if (taskList === null || !Array.isArray(taskList) || taskList.length === 0) {
       taskList = [];
 
       taskList.push({
